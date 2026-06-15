@@ -1,7 +1,7 @@
 -- Active: 1747667236987@@127.0.0.1@5432@postgres
 -- Create table for users
 CREATE TABLE Users (
-    user_id INT PRIMARY KEY,
+    user_id SERIAL PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     role VARCHAR(20) NOT NULL CHECK (
@@ -15,7 +15,7 @@ CREATE TABLE Users (
 
 --create table for matches
 CREATE TABLE Matches (
-    match_id int PRIMARY KEY,
+    match_id SERIAL PRIMARY KEY,
     fixture varchar(150) NOT NULL,
     tournament_category varchar(100) NOT NULL,
     base_ticket_price numeric(10, 2) NOT NULL CHECK (base_ticket_price >= 0),
@@ -32,7 +32,7 @@ CREATE TABLE Matches (
 -- create table for bookings
 
 CREATE TABLE Bookings (
-    booking_id int PRIMARY KEY,
+    booking_id SERIAL PRIMARY KEY,
     user_id int NOT NULL,
     match_id int NOT NULL,
     seat_number varchar(20),
